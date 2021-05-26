@@ -1,1 +1,1 @@
-"# gallery-mean-stack" 
+gallery-mean-stack 
