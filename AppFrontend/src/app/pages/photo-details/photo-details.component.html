@@ -1,0 +1,23 @@
+<div class="main-container">
+    <div class="card">
+        <div class="card-content">
+          <div class="content">
+                <h3 class="bd-notification is-primary">
+                  {{image.title}}
+                </h3>
+                <br>
+                <p>
+                    {{image.description}}
+                </p>
+            <img [src]="image.url" alt="">
+            <br>
+            <div *ngIf="likes.length">
+              Users like this picture are: <span *ngFor="let username of likes"> <strong>{{username}}</strong> , </span>
+            </div>
+
+          </div>
+        </div>
+    </div>
+</div>
+<br>
+  

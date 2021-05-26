@@ -1,0 +1,10 @@
+<div class="main-container">
+    <div class="photos-list is-multiline columns is-centered" [@listAnim]>
+        <app-photo-card 
+        class="column is-one-third"
+        *ngFor="let image of images" 
+        [@itemAnim] 
+        (delete)="deleteImage(image)"
+        [image]="image"></app-photo-card>
+    </div>
+</div>

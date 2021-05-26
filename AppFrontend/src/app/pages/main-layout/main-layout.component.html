@@ -1,0 +1,12 @@
+<div class="layout-box">
+    <div class="top-bar is-row">
+        <h5 (click)="onNavigateToHome()">Recents</h5>
+        <h5 (click)="onGetPopular()">Popular</h5>
+        <h5 (click)="onGetFavorites()">Favorites</h5>
+        <h5 (click)="onAddImage()">Add Image</h5>
+        <h5 (click)="logout()">Logout</h5>
+    </div>
+    <div class="page-content">
+        <router-outlet></router-outlet>
+    </div>
+</div>

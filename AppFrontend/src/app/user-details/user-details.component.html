@@ -1,0 +1,84 @@
+<form #signupForm="ngForm" (ngSubmit)="onFormSubmit(signupForm)">
+  
+    <div class="field">
+      <span><p>Username should contain more than 3 characters and have only numbers and letters</p></span>
+      <p class="control has-icons-left">
+        <input
+          type="text"
+          class="input"
+          name="username"
+          [ngModel]="user.username"
+          #username="ngModel"
+          required
+          minlength="3"
+          pattern="^[a-zA-Z0-9 ]+$"
+          placeholder="Username">
+          <span class="icon is-small is-left">
+            <i class="fas fa-envelope"></i>
+          </span>
+      </p>
+
+      <span *ngIf="errorMessage">
+        <p class="errorMessage">{{ errorMessage }}</p>
+      </span>
+
+      <span 
+      *ngIf="username.invalid && username.errors?.required && (username.dirty || username.touched)">
+      <p class="errorMessage">This field is required.</p>
+      </span>
+    
+      <span *ngIf="username.invalid && username.errors?.pattern && (username.dirty || username.touched) && !username.errors.required"> 
+        <p class="errorMessage">Username should have only numbers and letters.</p>
+      </span> 
+      
+      <span *ngIf="username.invalid && username.errors?.minlength && (username.dirty || username.touched) && !username.errors.required && !username.errors.pattern">
+        <p class="errorMessage">Username must be at least 3 characters long.</p>
+      </span>
+
+    </div>
+  
+    <div class="field">
+      <span><p>Password should have at least one upercase character, one lowercase character and one number</p></span>
+      <p class="control has-icons-left">
+        <input
+          type="password"
+          class="input"
+          name="password"
+          [ngModel]="user.password"
+          #password="ngModel"
+          minlength="8"
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{3,}"
+          [required]="!userExists"
+          [placeholder]="userExists ? 'Type new password here...' : 'Password'">
+          <span class="icon is-small is-left">
+            <i class="fas fa-lock"></i>
+          </span>
+      </p>
+
+      <span 
+      *ngIf="password.invalid && password.errors?.required && (password.dirty || password.touched)">
+      <p class="errorMessage">This field is required.</p>
+      </span>
+    
+      <span *ngIf="password.invalid && password.errors?.pattern && (password.dirty || password.touched) && !password.errors.required"> 
+        <p class="errorMessage">Password should have at least one upercase character, one lowercase character and one number.</p>
+      </span> 
+      
+      <span *ngIf="password.invalid && password.errors?.minlength && (password.dirty || password.touched) && !password.errors.required && !password.errors.pattern">
+        <p class="errorMessage">Password must be at least 8 characters long.</p>
+      </span>
+
+    </div>
+  
+    <div class="field">
+      <div class="control">
+        <button type="submit" style="margin-top: 20px;" class="button is-primary has-text-white is-fullwidth"
+          placeholder="e.g. password123" [disabled]="!signupForm.valid">
+  
+          <p>Sign up</p>
+          
+        </button>
+      </div>
+    </div>
+  
+  </form>

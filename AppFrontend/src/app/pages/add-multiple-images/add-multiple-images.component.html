@@ -1,0 +1,202 @@
+<div class="main-container">
+    <div class="photos-list is-multiline columns is-centered">
+        <div class="file is-medium is-boxed column is-one-quarter" *ngIf="!image1Added">
+            <label class="file-label">
+              <input class="file-input" type="file" name="image1" (change)="onFileSelected1($event)">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Upload image 1
+                </span>
+              </span>
+            </label>
+
+            <br>
+            <div class="field">
+              <div class="control">
+                <textarea 
+                class="textarea" 
+                [(ngModel)]="description1"
+                placeholder="Description"></textarea>
+              </div>
+            </div>
+
+           <span 
+              *ngIf="largeSize1">
+              <p class="errorMessage">The size of this image is large. Please try another image.</p>
+            </span>
+           
+            
+
+            <span 
+              *ngIf="invalidFileType1">
+              <p class="errorMessage">This file is not an image. Please try to upload a valid image.</p>
+            </span>
+  
+            <br>
+  
+            <div>
+              <img [src]="url1" *ngIf="url1">
+          </div>
+
+          </div>
+    
+          <div class="file is-medium is-boxed column is-one-quarter"  *ngIf="image1Added">
+            <p>Image 1 added successfully</p>
+          </div>
+
+          <div class="file is-medium is-boxed column is-one-quarter" *ngIf="!image2Added">
+            <label class="file-label">
+              <input class="file-input" type="file" name="image2" (change)="onFileSelected2($event)">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Upload image 2
+                </span>
+              </span>
+            </label>
+
+            <br>
+            <div class="field">
+              <div class="control">
+                <textarea 
+                class="textarea" 
+                [(ngModel)]="description2"
+                placeholder="Description"></textarea>
+              </div>
+            </div>
+
+             <span 
+              *ngIf="largeSize2">
+              <p class="errorMessage">The size of this image is large. Please try another image.</p>
+            </span>
+           
+            
+
+           <span 
+           *ngIf="invalidFileType2">
+           <p class="errorMessage">This file is not an image. Please try to upload a valid image.</p>
+         </span>
+
+         <br>
+
+         <div *ngIf="selectedFile2">
+           <img [src]="url2" *ngIf="url2">
+       </div>
+
+
+    </div>
+
+
+    <div class="file is-medium is-boxed column is-one-quarter"  *ngIf="image2Added">
+      <p>Image 2 added successfully</p>
+    </div>
+
+    
+          <div class="file is-medium is-boxed column is-one-quarter" *ngIf="!image3Added">
+            <label class="file-label">
+              <input class="file-input" type="file" name="image3" (change)="onFileSelected3($event)">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Upload image 3
+                </span>
+              </span>
+            </label>
+
+            <br>
+            <div class="field">
+              <div class="control">
+                <textarea 
+                class="textarea" 
+                [(ngModel)]="description3"
+                placeholder="Description"></textarea>
+              </div>
+            </div>
+
+            <span 
+              *ngIf="largeSize3">
+              <p class="errorMessage">The size of this image is large. Please try another image.</p>
+            </span>
+           
+            
+
+           <span 
+           *ngIf="invalidFileType3">
+           <p class="errorMessage">This file is not an image. Please try to upload a valid image.</p>
+         </span>
+
+         <br>
+
+         <div *ngIf="selectedFile3">
+           <img [src]="url3" *ngIf="url3">
+       </div>
+
+
+          </div>
+
+          <div class="file is-medium is-boxed column is-one-quarter"  *ngIf="image3Added">
+            <p>Image 3 added successfully</p>
+          </div>
+    
+          <div class="file is-medium is-boxed column is-one-quarter" *ngIf="!image4Added">
+            <label class="file-label">
+              <input class="file-input" type="file" name="image4" (change)="onFileSelected4($event)">
+              <span class="file-cta">
+                <span class="file-icon">
+                  <i class="fas fa-upload"></i>
+                </span>
+                <span class="file-label">
+                  Upload image 4
+                </span>
+              </span>
+            </label>
+
+            <br>
+            <div class="field">
+              <div class="control">
+                <textarea 
+                class="textarea" 
+                [(ngModel)]="description4"
+                placeholder="Description"></textarea>
+              </div>
+            </div>
+
+            <span 
+              *ngIf="largeSize4">
+              <p class="errorMessage">The size of this image is large. Please try another image.</p>
+            </span>
+           
+            
+
+        <span 
+           *ngIf="invalidFileType4">
+           <p class="errorMessage">This file is not an image. Please try to upload a valid image.</p>
+         </span>
+
+         <br>
+
+         <div *ngIf="selectedFile4">
+           <img [src]="url4" *ngIf="url4">
+       </div>
+
+
+          </div>
+
+          <div class="file is-medium is-boxed column is-one-quarter"  *ngIf="image4Added">
+            <p>Image 4 added successfully</p>
+          </div>
+
+
+          <button class="button floating-add-button is-primary" (click)="onUpload()"><span>Upload</span></button>
+
+
+    </div>
+</div>
+

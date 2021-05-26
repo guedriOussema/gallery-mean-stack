@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-content">
+      <div class="content">
+        
+        <div class="columns">
+          <div class="column"></div>
+          <div class="column is-one-third has-text-right x-button">
+            <i *ngIf="canDelete" class="fas fa-times fa-2x has-text-danger" (click)="onXButtonClick()"></i>
+          </div>
+        </div>
+
+        <div (click)="onGoToDetails()">
+          <img [src]="image.url" alt="">
+        </div>
+
+      </div>
+    </div>
+    <footer class="card-footer"  *ngIf="!favorite">
+     
+      <div class="card-footer-item is-flex-direction-column">
+      
+        <div>
+          <span class="icon">
+            <i
+            [ngClass]="{'far': !isLike, 'fas': isLike}" 
+            class="fa-thumbs-up fa-2x card-footer-item has-text-info" (click)="onLike()">
+          </i>
+          </span>
+        </div>
+        
+        <div>
+          <span *ngIf="numberLikes && !isLike">{{ numberLikes }} liked this post</span>
+          <span *ngIf="numberLikes && isLike && (numberLikes > 1)">You and {{ numberLikes - 1 }} people liked this post.</span>
+          <span *ngIf="numberLikes && isLike && (numberLikes == 1)">You liked this post.</span>
+        </div>
+
+      </div>
+      
+      <div class="card-footer-item">
+        <i 
+          [ngClass]="{'far': !isFavorite, 'fas': isFavorite}" 
+          class="fa-heart fa-2x card-footer-item has-text-danger" (click)="onFavorite()"></i>
+      </div>
+
+
+          
+    
+          
+    </footer>
+</div>
+  

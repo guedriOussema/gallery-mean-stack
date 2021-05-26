@@ -1,0 +1,81 @@
+
+<div class="form-container">
+
+  
+     <button class="button is-fullwidth is-link" (click)="onAddMultiplePhotos()">Add multiple photos</button>
+
+     <br>
+
+    <div class="field">
+      <label class="label">Title</label>
+      <div class="control">
+        <input 
+        class="input" 
+        type="text" 
+        [(ngModel)]="title"
+        placeholder="Title">
+      </div>
+    </div>
+  
+    <div class="field">
+      <label class="label">Description</label>
+      <div class="control">
+        <textarea 
+        class="textarea" 
+        [(ngModel)]="description"
+        placeholder="Textarea"></textarea>
+      </div>
+    </div>
+  
+          <div class="file">
+              <label class="file-label">
+                <input class="file-input" type="file" name="image" (change)="onFileSelected($event)">
+                <span class="file-cta">
+                  <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                  </span>
+                  <span class="file-label">
+                    Upload photo
+                  </span>
+                </span>
+              </label>
+            </div>
+            <br>
+  
+            <span 
+              *ngIf="largeSize">
+              <p class="errorMessage">The size of this image is large. Please try another image.</p>
+            </span>
+
+            <span 
+              *ngIf="invalidFileType">
+              <p class="errorMessage">This file is not an image. Please try to upload a valid image.</p>
+            </span>
+  
+            <br>
+  
+            <div>
+              <img [src]="url" *ngIf="url">
+          </div>
+  
+          <br>
+  
+            <div class="field is-grouped">
+              <div class="control">
+                <button 
+                class="button is-link" 
+                [disabled]="!validFileType"
+                (click)="onUpload()">Submit</button>
+              </div>
+              <div class="control">
+                <button 
+                class="button is-link is-light has-text-danger" 
+                (click)="onCancel()">Cancel</button>
+              </div>
+            </div>
+  
+            <br>
+            
+  
+            
+  </div>

@@ -1,0 +1,70 @@
+<div class="main-section">
+
+    <div class="main-container">
+  
+      <div class="form-container">
+        <h1 class="title">Log in</h1>
+  
+  
+        <form #loginForm="ngForm" (ngSubmit)="onFormSubmit(loginForm)">
+  
+          <div class="field">
+            <p class="control has-icons-left">
+              <input 
+              class="input" 
+              type="text"
+              name="username"
+              [(ngModel)]="user.username" 
+              required
+              placeholder="Username">
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+            </p>
+          </div>
+  
+          <div class="field">
+            <p class="control has-icons-left">
+                <input
+                  type="password"
+                  class="input"
+                  name="password"
+                  [ngModel]="user.password"
+                  required
+                  minlength="8"
+                  placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+            </p>
+          </div>
+  
+          <div class="field">
+            <div class="control">
+              <button
+                type="submit"
+                style="margin-top: 20px;"
+                class="button is-primary has-text-white is-fullwidth"
+                [disabled]="!loginForm.valid">Log in</button>
+            </div>
+          </div>
+
+          <span *ngIf="errorLogin">
+            <p class="errorMessage">Log in failed.</p>
+          </span>
+          
+  
+        </form>
+  
+      </div>
+  
+      <div class="alternate-bar">
+        <h2>Don't have an account?</h2>
+        <button class="button" routerLink="/auth/signup">
+          Sign up
+        </button>
+      </div>
+  
+    </div>
+  
+  </div>
